@@ -203,8 +203,6 @@ var PDFObject = function (obj){
 
     embed = function(targetID){
 
-        if(!pluginTypeFound){ return false; }
-
         var targetNode = null;
 
         if(targetID){
@@ -223,9 +221,7 @@ var PDFObject = function (obj){
             height = "100%";
 
         }
-
-        targetNode.innerHTML = '<object    data="' +url +'" type="application/pdf" width="' +width +'" height="' +height +'"></object>';
-
+        targetNode.innerHTML = '<iframe src="' + url + '" width="' + width + '" height="' + height + '"></iframe>';
         return targetNode.getElementsByTagName("object")[0];
 
     };
